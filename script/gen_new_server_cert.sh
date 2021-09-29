@@ -45,7 +45,7 @@ fi
 
 openssl req -new -sha256 -nodes -newkey ec:prime256v1.pem -keyout ${KEY_FILE} -out ${CSR_FILE} -subj "/C=${C}/ST=${ST}/L=${L}/O=${O}/OU=${OU}/CN=${CN}/emailAddress=${emailAddress}"
 
-openssl x509 -req -sha256 -days 3650 -CA ../ca/ca.crt -CAkey ../ca/ca.key -CAcreateserial -in ${CSR_FILE} -out ${CERT_FILE} -extfile v3.ext
+openssl x509 -req -sha256 -days 365 -CA ../ca/ca.crt -CAkey ../ca/ca.key -CAcreateserial -in ${CSR_FILE} -out ${CERT_FILE} -extfile v3.ext
 
 # show the info of new cert
 openssl x509 -text -in ${CERT_FILE} -noout
