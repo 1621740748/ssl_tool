@@ -20,7 +20,7 @@ if [[ $1 = "-h" ]]; then
     exit
 fi
 
-FILENAME="new_ca"
+FILENAME="ca"
 KEY_FILE=${FILENAME}.key
 CSR_FILE=${FILENAME}.csr
 CERT_FILE=${FILENAME}.crt
@@ -64,7 +64,7 @@ if [ ! -f "prime256v1.pem" ];then
   openssl ecparam -name prime256v1 -out prime256v1.pem
 fi
 # private key with password
-openssl req -x509 -sha256 -days 3650 -newkey ec:prime256v1.pem -keyout ${KEY_FILE} -out ${CERT_FILE} -config ca.conf
+openssl req -x509 -sha256 -nodes -days 3650 -newkey ec:prime256v1.pem -keyout ${KEY_FILE} -out ${CERT_FILE} -config ca.conf
 # private key without password
 # openssl req -x509 -sha256 -nodes -days 3650 -newkey ec:ec.param -keyout ${KEY_FILE} -out ${CERT_FILE} -config ca.conf
 
