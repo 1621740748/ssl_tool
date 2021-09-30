@@ -6,3 +6,4 @@ subjectAltName = @alt_names
 [alt_names]
 DNS.1 = *.jrj.com.cn
 DNS.2 = *.itougu.com
+DNS.3 = *.jrjimg.cn
